@@ -1,5 +1,5 @@
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router';
 
 export const Dashboard = () => {
   const { user, logout } = useAuth();
@@ -15,9 +15,7 @@ export const Dashboard = () => {
       <h1>Dashboard</h1>
       {user && (
         <div>
-          <h2>Bienvenido, {user.name}</h2>
-          <p>Email: {user.email}</p>
-          <img src={user.picture} alt="Foto de perfil" />
+          <Link to="/profile">Mi Perfil</Link>
         </div>
       )}
       <button onClick={handleLogout}>Cerrar Sesión</button>

@@ -1,9 +1,11 @@
 
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router';
 import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { useAuth } from './context/AuthContext';
+
+import { Profile } from './pages/Profile';
 
 
 function App() {
@@ -28,7 +30,13 @@ function App() {
       />
       
       {/* Aquí puedes añadir más rutas protegidas */}
-      {/* <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} /> */}
+      <Route path="/profile" 
+      element={
+        <ProtectedRoute>
+          <Profile />
+        </ProtectedRoute>
+      } 
+      />
 
     </Routes>
   );
